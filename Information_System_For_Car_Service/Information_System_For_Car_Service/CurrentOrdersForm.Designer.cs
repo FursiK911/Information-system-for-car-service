@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.dgv_service = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.вернутьсяВМенюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.col_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_priceForVIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_leadTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.ms_comeback = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_service)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,24 +59,6 @@
             this.dgv_service.Name = "dgv_service";
             this.dgv_service.Size = new System.Drawing.Size(651, 313);
             this.dgv_service.TabIndex = 0;
-            this.dgv_service.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_service_CellContentClick);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.вернутьсяВМенюToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(675, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // вернутьсяВМенюToolStripMenuItem
-            // 
-            this.вернутьсяВМенюToolStripMenuItem.Name = "вернутьсяВМенюToolStripMenuItem";
-            this.вернутьсяВМенюToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
-            this.вернутьсяВМенюToolStripMenuItem.Text = "Вернуться в меню";
-            this.вернутьсяВМенюToolStripMenuItem.Click += new System.EventHandler(this.вернутьсяВМенюToolStripMenuItem_Click);
             // 
             // col_order
             // 
@@ -120,6 +102,23 @@
             this.col_customer.Name = "col_customer";
             this.col_customer.ReadOnly = true;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ms_comeback});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(675, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "ms_menu";
+            // 
+            // ms_comeback
+            // 
+            this.ms_comeback.Name = "ms_comeback";
+            this.ms_comeback.Size = new System.Drawing.Size(119, 20);
+            this.ms_comeback.Text = "Вернуться в меню";
+            this.ms_comeback.Click += new System.EventHandler(this.вернутьсяВМенюToolStripMenuItem_Click);
+            // 
             // CurrentOrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,6 +129,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "CurrentOrdersForm";
             this.Text = "Текущие заказы";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CurrentOrdersForm_FormClosing);
             this.Load += new System.EventHandler(this.CurrentOrdersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_service)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -143,7 +143,7 @@
 
         private System.Windows.Forms.DataGridView dgv_service;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem вернутьсяВМенюToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ms_comeback;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_order;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_priceForVIP;

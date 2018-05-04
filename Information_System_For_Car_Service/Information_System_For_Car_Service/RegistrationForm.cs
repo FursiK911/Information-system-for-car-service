@@ -64,6 +64,7 @@ namespace Information_System_For_Car_Service
                     excel.SaveDocument();
 
                 excel.CloseDocument();
+                this.Close();
             }
         }
 

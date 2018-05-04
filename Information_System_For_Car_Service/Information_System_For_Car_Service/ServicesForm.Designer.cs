@@ -35,7 +35,6 @@
             this.col_leadTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ms_service = new System.Windows.Forms.MenuStrip();
             this.ms_toOrder = new System.Windows.Forms.ToolStripMenuItem();
-            this.ms_discount = new System.Windows.Forms.ToolStripMenuItem();
             this.ms_comeback = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_service)).BeginInit();
             this.ms_service.SuspendLayout();
@@ -87,7 +86,6 @@
             // 
             this.ms_service.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ms_toOrder,
-            this.ms_discount,
             this.ms_comeback});
             this.ms_service.Location = new System.Drawing.Point(0, 0);
             this.ms_service.Name = "ms_service";
@@ -101,13 +99,6 @@
             this.ms_toOrder.Size = new System.Drawing.Size(66, 20);
             this.ms_toOrder.Text = "Заказать";
             this.ms_toOrder.Click += new System.EventHandler(this.ms_toOrder_Click);
-            // 
-            // ms_discount
-            // 
-            this.ms_discount.Name = "ms_discount";
-            this.ms_discount.Size = new System.Drawing.Size(163, 20);
-            this.ms_discount.Text = "Установить скидку для VIP";
-            this.ms_discount.Click += new System.EventHandler(this.ms_discount_Click);
             // 
             // ms_comeback
             // 
@@ -126,6 +117,7 @@
             this.MainMenuStrip = this.ms_service;
             this.Name = "ServicesForm";
             this.Text = "Услуги";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ServicesForm_FormClosing);
             this.Load += new System.EventHandler(this.Services_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_service)).EndInit();
             this.ms_service.ResumeLayout(false);
@@ -145,6 +137,5 @@
         private System.Windows.Forms.MenuStrip ms_service;
         private System.Windows.Forms.ToolStripMenuItem ms_toOrder;
         private System.Windows.Forms.ToolStripMenuItem ms_comeback;
-        private System.Windows.Forms.ToolStripMenuItem ms_discount;
     }
 }

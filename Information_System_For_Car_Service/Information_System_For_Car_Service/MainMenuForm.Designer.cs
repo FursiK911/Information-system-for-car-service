@@ -88,6 +88,7 @@
             this.bt_vip.TabIndex = 4;
             this.bt_vip.Text = "Присвоить клиенту статус VIP";
             this.bt_vip.UseVisualStyleBackColor = true;
+            this.bt_vip.Click += new System.EventHandler(this.bt_vip_Click);
             // 
             // bt_schedule
             // 

@@ -56,5 +56,11 @@ namespace Information_System_For_Car_Service
             CurrentOrdersForm order = new CurrentOrdersForm(user);
             order.ShowDialog();
         }
+
+        private void bt_vip_Click(object sender, EventArgs e)
+        {
+            StatusVIPForm vipForm = new StatusVIPForm();
+            vipForm.ShowDialog();
+        }
     }
 }

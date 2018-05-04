@@ -29,38 +29,41 @@ namespace Information_System_For_Car_Service
 
         private void bt_ok_Click(object sender, EventArgs e)
         {
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\Information System For Car Service\\Information System.xls";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\Information System For Car Service\\Information System.xls";
 
-                if (excel.ExcelIsPresent())
+            if (excel.ExcelIsPresent())
+            {
+                if (File.Exists(path))
                 {
-                    if (File.Exists(path))
-                    {
-                        excel.OpenDocument(path);
-                    }
-                    else
-                    {
-                        excel.NewDocument();
-                    }
-
-                    if (excel.ExistAdministration(admin, tb_login.Text, tb_password.Text))
-                    {
-
-                    }
-
-                    if (excel.ExistClient(client, tb_login.Text, tb_password.Text))
-                    {
-                        this.Hide();
-                        MainMenuForm menu = new MainMenuForm(client);
-                        excel.CloseDocument();
-                        menu.ShowDialog();
-                    }
-
-                    else
-                        MessageBox.Show("Пользователь с таким логином и паролем не найден!");
-
-                    this.Close();
+                    excel.OpenDocument(path);
                 }
-           
+                else
+                {
+                    excel.NewDocument();
+                }
+
+                if (excel.ExistAdministration(admin, tb_login.Text, tb_password.Text))
+                {
+                    this.Hide();
+                    excel.CloseDocument();
+                    MainMenuForm menu = new MainMenuForm(admin);
+                    menu.ShowDialog();
+                }
+
+                else if (excel.ExistClient(client, tb_login.Text, tb_password.Text))
+                {
+                    this.Hide();
+                    excel.CloseDocument();
+                    MainMenuForm menu = new MainMenuForm(client);
+                    menu.ShowDialog();
+                }
+
+                else
+                    MessageBox.Show("Пользователь с таким логином и паролем не найден!");
+
+                this.Close();
+            }
+
         }
 
         private void cb_viewPassword_CheckedChanged(object sender, EventArgs e)

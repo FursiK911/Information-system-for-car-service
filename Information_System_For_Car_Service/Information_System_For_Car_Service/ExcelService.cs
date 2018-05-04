@@ -32,6 +32,18 @@ namespace Information_System_For_Car_Service
 
             xlNewSheet = (Excel.Worksheet)xlSheets.Add(xlSheets[2], Type.Missing, Type.Missing, Type.Missing);
             xlNewSheet.Name = "Администрация";
+            xlWorkSheet.Cells[1, 1] = "Логин";
+            xlWorkSheet.Cells[1, 2] = "Пароль";
+            xlWorkSheet.Cells[1, 3] = "ФИО";
+            xlWorkSheet.Cells[1, 4] = "Год рождения";
+            xlWorkSheet.Cells[1, 5] = "Должность";
+            xlWorkSheet.Cells[1, 6] = "Зарплата";
+            xlWorkSheet.Cells[2, 1] = "admin";
+            xlWorkSheet.Cells[2, 2] = "admin";
+            xlWorkSheet.Cells[2, 3] = "Шереметьев А.С.";
+            xlWorkSheet.Cells[2, 4] = "1997";
+            xlWorkSheet.Cells[2, 5] = "Системный администратор";
+            xlWorkSheet.Cells[2, 6] = "8000";
 
             xlNewSheet = (Excel.Worksheet)xlSheets.Add(xlSheets[3], Type.Missing, Type.Missing, Type.Missing);
             xlNewSheet.Name = "Услуги";
@@ -216,20 +228,18 @@ namespace Information_System_For_Car_Service
             xlWorkSheet.Cells[1, 3] = "Цена для VIP";
             xlWorkSheet.Cells[1, 4] = "Время выполнения";
 
+            int i = 2;
             for (int j = 0; j < service.Count; j++)
             {
-                for (int i = 2; ; i++)
-                {
-                    string x = xlWorkSheet.Cells[i, 1].Text;
-                    if (x == "")
-                    {
-                        xlWorkSheet.Cells[i, 1] = service[j].service;
-                        xlWorkSheet.Cells[i, 2] = service[j].price;
-                        xlWorkSheet.Cells[i, 3] = service[j].priceForVIP;
-                        xlWorkSheet.Cells[i, 4] = service[j].leadTime;
-                        break;
-                    }
-                }
+                string x = xlWorkSheet.Cells[i, 1].Text;
+                xlWorkSheet.Cells[i, 1] = service[j].service;
+                xlWorkSheet.Cells[i, 2] = service[j].price;
+                xlWorkSheet.Cells[i, 3] = service[j].priceForVIP;
+                xlWorkSheet.Cells[i, 4] = service[j].leadTime;
+                xlWorkSheet.Cells[i + 1, 1] = "";
+                xlWorkSheet.Cells[i + 1, 2] = "";
+                xlWorkSheet.Cells[i + 1, 3] = "";
+                xlWorkSheet.Cells[i++ + 1, 4] = "";
             }
 
         }
@@ -266,35 +276,34 @@ namespace Information_System_For_Car_Service
             xlWorkSheet.Cells[1, 5] = "Текущие заказы";
             xlWorkSheet.Cells[1, 6] = "Заказчик";
 
+            int i = 2;
             for (int j = 0; j < service.Count; j++)
             {
-                for (int i = 2; ; i++)
-                {
-                    xlWorkSheet.Cells[i, 1] = service[j].service;
-                    xlWorkSheet.Cells[i, 2] = service[j].price;
-                    xlWorkSheet.Cells[i, 3] = service[j].priceForVIP;
-                    xlWorkSheet.Cells[i, 4] = service[j].leadTime;
-                    xlWorkSheet.Cells[i, 5] = service[j].status;
-                    xlWorkSheet.Cells[i, 6] = service[j].customer;
-                }
+                xlWorkSheet.Cells[i, 1] = service[j].service;
+                xlWorkSheet.Cells[i, 2] = service[j].price;
+                xlWorkSheet.Cells[i, 3] = service[j].priceForVIP;
+                xlWorkSheet.Cells[i, 4] = service[j].leadTime;
+                xlWorkSheet.Cells[i, 5] = service[j].status;
+                xlWorkSheet.Cells[i++, 6] = service[j].customer;
             }
         }
 
         public void ReadCurrentOrders(User user)
         {
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(4);
             if ((user.GetType() == typeof(Client)))
             {
                 Client client = (Client)user;
                 int j = 0;
                 client.services.Clear();
-                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(4);
+                
 
                 for (int i = 2; ; i++)
                 {
-                    string x = xlWorkSheet.Cells[i, 1].Text;
+                    string x = xlWorkSheet.Cells[i, 6].Text;
                     if (x == "")
                         return;
-                    else if(client.Login == x)
+                    else if(client.FullName == x)
                     {
                         client.services.Add(new Service());
                         client.services[j].service = xlWorkSheet.Cells[i, 1].Text;
@@ -312,7 +321,6 @@ namespace Information_System_For_Car_Service
                 Administration admin = (Administration)user;
                 int j = 0;
                 admin.services.Clear();
-                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(4);
 
                 for (int i = 2; ; i++)
                 {
@@ -331,7 +339,39 @@ namespace Information_System_For_Car_Service
                     }
                 }
             }
-                
+        }
+
+        public List<string> GetListClient()
+        {
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            List<string> listClient = new List<string>();
+            for (int i = 2; ; i++)
+            {
+                string x = xlWorkSheet.Cells[i, 1].Text;
+                if (x == "")
+                    break;
+                else
+                {
+                    listClient.Add(xlWorkSheet.Cells[i, 1].Text);
+                }
+            }
+            return listClient;
+        }
+
+        public void setVIPStatus(string login, bool status)
+        {
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            for (int i = 2; ; i++)
+            {
+                string x = xlWorkSheet.Cells[i, 1].Text;
+                if (x == "")
+                    break;
+                else if (login == x)
+                {
+                    xlWorkSheet.Cells[i, 8] = status.ToString();
+                    return;
+                }
+            }
         }
 
         private void releaseObject(object obj)

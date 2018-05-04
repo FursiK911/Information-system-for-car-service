@@ -84,6 +84,12 @@
     <Compile Include="ServicesForm.Designer.cs">
       <DependentUpon>ServicesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatusVIPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatusVIPForm.Designer.cs">
+      <DependentUpon>StatusVIPForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServicesForm.resx">
       <DependentUpon>ServicesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatusVIPForm.resx">
+      <DependentUpon>StatusVIPForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
