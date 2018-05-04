@@ -47,6 +47,7 @@
             this.tb_login.Name = "tb_login";
             this.tb_login.Size = new System.Drawing.Size(286, 20);
             this.tb_login.TabIndex = 0;
+            this.tb_login.Text = "ManikO";
             // 
             // lb_login
             // 
@@ -78,6 +79,7 @@
             this.tb_password.Name = "tb_password";
             this.tb_password.Size = new System.Drawing.Size(286, 20);
             this.tb_password.TabIndex = 2;
+            this.tb_password.Text = "black";
             // 
             // cb_viewPassword
             // 

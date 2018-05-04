@@ -22,16 +22,23 @@ namespace Information_System_For_Car_Service
 
         private void bt_register_Click(object sender, EventArgs e)
         {
-
             if (allFieldsFull() && excel.ExcelIsPresent())
             {
-                client.Login = tb_login.Text;
-                client.Password = tb_password.Text;
-                client.FullName = tb_fullName.Text;
-                client.YearOfBirth = tb_year.Text;
-                client.CarModel = tb_modelCar.Text;
-                client.YearOfCarManufacture = tb_yearOfCar.Text;
-                client.VIP = false;
+                try
+                {
+                    client.Login = tb_login.Text;
+                    client.Password = tb_password.Text;
+                    client.FullName = tb_fullName.Text;
+                    client.YearOfBirth = tb_year.Text;
+                    client.CarModel = tb_modelCar.Text;
+                    client.LicensePlate = tb_licensePlate.Text;
+                    client.YearOfCarManufacture = int.Parse(tb_yearOfCar.Text);
+                    client.VIP = false;
+                }
+                catch
+                {
+                    MessageBox.Show("Введены некорректные данные!");
+                }               
 
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\Information System For Car Service\\Information System.xls";
                 if (File.Exists(path))
@@ -45,7 +52,7 @@ namespace Information_System_For_Car_Service
 
                 if (!excel.ExistClient(client, tb_login.Text, tb_password.Text))
                 {
-                    excel.WriteData(client);
+                    excel.WriteDataUser(client);
                 }
 
                 else
@@ -67,7 +74,7 @@ namespace Information_System_For_Car_Service
 
         private bool allFieldsFull()
         {
-            if (tb_fullName.Text != "" && tb_login.Text != "" && tb_modelCar.Text != "" && tb_password.Text != "" && tb_year.Text != "")
+            if (tb_fullName.Text != "" && tb_login.Text != "" && tb_modelCar.Text != "" && tb_password.Text != "")
                 return true;
             return false;
         }

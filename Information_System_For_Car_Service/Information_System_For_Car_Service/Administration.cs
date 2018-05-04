@@ -10,5 +10,7 @@ namespace Information_System_For_Car_Service
     {
         public string Position { get; set; }
         public int Salary { get; set; }
+
+        public List<Service> services = new List<Service>();
     }
 }
