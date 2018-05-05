@@ -78,6 +78,7 @@ namespace Information_System_For_Car_Service
         }
         private void FillService(Administration admin)
         {
+            dgv_service.EndEdit();
             admin.services.Clear();
             int j = 0;
             for (int i = 0; i < dgv_service.RowCount - 1; i++)

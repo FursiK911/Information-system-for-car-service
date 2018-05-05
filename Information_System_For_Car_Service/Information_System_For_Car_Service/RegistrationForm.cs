@@ -24,21 +24,14 @@ namespace Information_System_For_Car_Service
         {
             if (allFieldsFull() && excel.ExcelIsPresent())
             {
-                try
-                {
-                    client.Login = tb_login.Text;
-                    client.Password = tb_password.Text;
-                    client.FullName = tb_fullName.Text;
-                    client.YearOfBirth = tb_year.Text;
-                    client.CarModel = tb_modelCar.Text;
-                    client.LicensePlate = tb_licensePlate.Text;
-                    client.YearOfCarManufacture = int.Parse(tb_yearOfCar.Text);
-                    client.VIP = false;
-                }
-                catch
-                {
-                    MessageBox.Show("Введены некорректные данные!");
-                }               
+                client.Login = tb_login.Text;
+                client.Password = tb_password.Text;
+                client.FullName = tb_fullName.Text;
+                client.YearOfBirth = tb_year.Text;
+                client.CarModel = tb_modelCar.Text;
+                client.LicensePlate = tb_licensePlate.Text;
+                client.YearOfCarManufacture = tb_yearOfCar.Text;
+                client.VIP = false;
 
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\Information System For Car Service\\Information System.xls";
                 if (File.Exists(path))
@@ -56,7 +49,10 @@ namespace Information_System_For_Car_Service
                 }
 
                 else
+                {
                     MessageBox.Show("Пользователь с таким логином уже существует!");
+                    this.Close();
+                }
 
                 if (!File.Exists(path))
                     excel.SaveAsDocument(path);
@@ -64,7 +60,6 @@ namespace Information_System_For_Car_Service
                     excel.SaveDocument();
 
                 excel.CloseDocument();
-                this.Close();
             }
         }
 

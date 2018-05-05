@@ -193,6 +193,59 @@ namespace Information_System_For_Car_Service
                 }
             }
         }
+        public void WriteDataAllUsers(List<Client> client)
+        {
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            xlWorkSheet.Cells[1, 1] = "Логин";
+            xlWorkSheet.Cells[1, 2] = "Пароль";
+            xlWorkSheet.Cells[1, 3] = "ФИО";
+            xlWorkSheet.Cells[1, 4] = "Год рождения";
+            xlWorkSheet.Cells[1, 5] = "Модель автомобиля";
+            xlWorkSheet.Cells[1, 6] = "Номерной знак";
+            xlWorkSheet.Cells[1, 7] = "Год выпуска автомобиля";
+            xlWorkSheet.Cells[1, 8] = "VIP";
+
+            int j = 2;
+            for (int i = 0; i < client.Count; i++)
+            {
+                xlWorkSheet.Cells[j, 1] = client[i].Login;
+                xlWorkSheet.Cells[j, 2] = client[i].Password;
+                xlWorkSheet.Cells[j, 3] = client[i].FullName;
+                xlWorkSheet.Cells[j, 4] = client[i].YearOfBirth;
+                xlWorkSheet.Cells[j, 5] = client[i].CarModel;
+                xlWorkSheet.Cells[j, 6] = client[i].LicensePlate;
+                xlWorkSheet.Cells[j, 7] = client[i].YearOfCarManufacture;
+                xlWorkSheet.Cells[j++, 8] = client[i].VIP.ToString();
+            }
+        }
+        public List<Client> ReadDataUser()
+        {
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            List<Client> client = new List<Client>();
+
+            for (int i = 2; ; i++)
+            {
+                string x = xlWorkSheet.Cells[i, 1].Text;
+                if (x == "")
+                    return client;
+                else
+                {
+                    client.Add(new Client());
+                    client[client.Count - 1].Login = xlWorkSheet.Cells[i, 1].Text;
+                    client[client.Count - 1].Password = xlWorkSheet.Cells[i, 2].Text;
+                    client[client.Count - 1].FullName = xlWorkSheet.Cells[i, 3].Text;
+                    client[client.Count - 1].YearOfBirth = xlWorkSheet.Cells[i, 4].Text;
+                    client[client.Count - 1].CarModel = xlWorkSheet.Cells[i, 5].Text;
+                    client[client.Count - 1].LicensePlate = xlWorkSheet.Cells[i, 6].Text;
+                    client[client.Count - 1].YearOfCarManufacture = xlWorkSheet.Cells[i, 7].Text;
+                    string status = xlWorkSheet.Cells[i, 8].Text;
+                    if (status == "ЛОЖЬ")
+                        client[client.Count - 1].VIP = false;
+                    else
+                        client[client.Count - 1].VIP = true;
+                }
+            }
+        }
 
         public void WriteDataAdministration(Administration user)
         {

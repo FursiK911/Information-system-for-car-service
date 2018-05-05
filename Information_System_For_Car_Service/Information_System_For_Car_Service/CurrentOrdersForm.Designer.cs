@@ -37,8 +37,8 @@
             this.col_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ms_comeback = new System.Windows.Forms.ToolStripMenuItem();
             this.ms_delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.ms_comeback = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_service)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +49,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_service.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_service.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dgv_service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_service.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_order,
@@ -115,19 +116,19 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "ms_menu";
             // 
-            // ms_comeback
-            // 
-            this.ms_comeback.Name = "ms_comeback";
-            this.ms_comeback.Size = new System.Drawing.Size(119, 20);
-            this.ms_comeback.Text = "Вернуться в меню";
-            this.ms_comeback.Click += new System.EventHandler(this.вернутьсяВМенюToolStripMenuItem_Click);
-            // 
             // ms_delete
             // 
             this.ms_delete.Name = "ms_delete";
             this.ms_delete.Size = new System.Drawing.Size(176, 20);
             this.ms_delete.Text = "Удалить выделенную строку";
             this.ms_delete.Click += new System.EventHandler(this.ms_delete_Click);
+            // 
+            // ms_comeback
+            // 
+            this.ms_comeback.Name = "ms_comeback";
+            this.ms_comeback.Size = new System.Drawing.Size(119, 20);
+            this.ms_comeback.Text = "Вернуться в меню";
+            this.ms_comeback.Click += new System.EventHandler(this.вернутьсяВМенюToolStripMenuItem_Click);
             // 
             // CurrentOrdersForm
             // 

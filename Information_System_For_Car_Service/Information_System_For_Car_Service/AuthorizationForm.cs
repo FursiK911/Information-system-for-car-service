@@ -48,6 +48,7 @@ namespace Information_System_For_Car_Service
                     excel.CloseDocument();
                     MainMenuForm menu = new MainMenuForm(admin);
                     menu.ShowDialog();
+                    this.Close();
                 }
 
                 else if (excel.ExistClient(client, tb_login.Text, tb_password.Text))
@@ -56,12 +57,13 @@ namespace Information_System_For_Car_Service
                     excel.CloseDocument();
                     MainMenuForm menu = new MainMenuForm(client);
                     menu.ShowDialog();
+                    this.Close();
                 }
 
                 else
+                {
                     MessageBox.Show("Пользователь с таким логином и паролем не найден!");
-
-                this.Close();
+                } 
             }
 
         }

@@ -10,7 +10,7 @@ namespace Information_System_For_Car_Service
     {
         public string CarModel { get; set; }
         public string LicensePlate { get; set; }
-        public int YearOfCarManufacture { get; set; }
+        public string YearOfCarManufacture { get; set; }
         public bool VIP { get; set; }
 
         public List<Service> services = new List<Service>();
