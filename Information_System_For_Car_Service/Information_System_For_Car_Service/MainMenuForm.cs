@@ -27,8 +27,7 @@ namespace Information_System_For_Car_Service
             if (user.GetType() == typeof(Client))
             {
                 this.user = (Client)user;
-                bt_vip.Visible = false;
-                bt_schedule.Visible = false;
+                bt_сlientBase.Visible = false;
                 bt_registration.Visible = false;
                 lb_fullName.Text = "Приветствуем вас, " + user.FullName;
 
@@ -59,8 +58,14 @@ namespace Information_System_For_Car_Service
 
         private void bt_vip_Click(object sender, EventArgs e)
         {
-            StatusVIPForm vipForm = new StatusVIPForm();
+            BaseClientsForm vipForm = new BaseClientsForm();
             vipForm.ShowDialog();
+        }
+
+        private void bt_registration_Click(object sender, EventArgs e)
+        {
+            RegistrationAdministrationForm register = new RegistrationAdministrationForm();
+            register.ShowDialog();
         }
     }
 }

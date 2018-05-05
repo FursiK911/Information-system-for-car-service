@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Information_System_For_Car_Service
 {
-    public partial class StatusVIPForm : Form
+    public partial class BaseClientsForm : Form
     {
-        public StatusVIPForm()
+        public BaseClientsForm()
         {
             InitializeComponent();
         }

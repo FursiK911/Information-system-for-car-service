@@ -34,6 +34,7 @@ namespace Information_System_For_Car_Service
             if ((user.GetType() == typeof(Client)))
             {
                 col_customer.Visible = false;
+                ms_delete.Visible = false;
                 Client client = (Client)user;
                 for (int i = 0; i < client.services.Count; i++)
                 {
@@ -89,6 +90,14 @@ namespace Information_System_For_Car_Service
                 admin.services[admin.services.Count - 1].leadTime = dgv_service[j++, i].Value.ToString();
                 admin.services[admin.services.Count - 1].status = dgv_service[j++, i].Value.ToString();
                 admin.services[admin.services.Count - 1].customer = dgv_service[j, i].Value.ToString();
+            }
+        }
+
+        private void ms_delete_Click(object sender, EventArgs e)
+        {
+            if (dgv_service.SelectedRows != null)
+            {
+                dgv_service.Rows.RemoveAt(dgv_service.CurrentCell.RowIndex);
             }
         }
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationForm));
             this.tb_login = new System.Windows.Forms.TextBox();
             this.lb_login = new System.Windows.Forms.Label();
             this.lb_password = new System.Windows.Forms.Label();
@@ -212,6 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(370, 385);
             this.Controls.Add(this.lb_help);
             this.Controls.Add(this.lb_licensePlate);
@@ -230,6 +232,7 @@
             this.Controls.Add(this.tb_password);
             this.Controls.Add(this.lb_login);
             this.Controls.Add(this.tb_login);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1000, 423);
             this.MinimumSize = new System.Drawing.Size(386, 423);
             this.Name = "RegistrationForm";

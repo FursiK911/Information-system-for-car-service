@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServicesForm));
             this.dgv_service = new System.Windows.Forms.DataGridView();
             this.col_services = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,6 +37,7 @@
             this.ms_service = new System.Windows.Forms.MenuStrip();
             this.ms_toOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.ms_comeback = new System.Windows.Forms.ToolStripMenuItem();
+            this.ms_delete = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_service)).BeginInit();
             this.ms_service.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +88,7 @@
             // 
             this.ms_service.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ms_toOrder,
+            this.ms_delete,
             this.ms_comeback});
             this.ms_service.Location = new System.Drawing.Point(0, 0);
             this.ms_service.Name = "ms_service";
@@ -107,13 +110,22 @@
             this.ms_comeback.Text = "Вернуться в главное меню";
             this.ms_comeback.Click += new System.EventHandler(this.ms_comeback_Click);
             // 
+            // ms_delete
+            // 
+            this.ms_delete.Name = "ms_delete";
+            this.ms_delete.Size = new System.Drawing.Size(176, 20);
+            this.ms_delete.Text = "Удалить выделенную строку";
+            this.ms_delete.Click += new System.EventHandler(this.ms_delete_Click);
+            // 
             // ServicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(556, 358);
             this.Controls.Add(this.dgv_service);
             this.Controls.Add(this.ms_service);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.ms_service;
             this.Name = "ServicesForm";
             this.Text = "Услуги";
@@ -137,5 +149,6 @@
         private System.Windows.Forms.MenuStrip ms_service;
         private System.Windows.Forms.ToolStripMenuItem ms_toOrder;
         private System.Windows.Forms.ToolStripMenuItem ms_comeback;
+        private System.Windows.Forms.ToolStripMenuItem ms_delete;
     }
 }

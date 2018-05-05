@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CurrentOrdersForm));
             this.dgv_service = new System.Windows.Forms.DataGridView();
             this.col_order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,6 +38,7 @@
             this.col_customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ms_comeback = new System.Windows.Forms.ToolStripMenuItem();
+            this.ms_delete = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_service)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -105,6 +107,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ms_delete,
             this.ms_comeback});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -119,13 +122,22 @@
             this.ms_comeback.Text = "Вернуться в меню";
             this.ms_comeback.Click += new System.EventHandler(this.вернутьсяВМенюToolStripMenuItem_Click);
             // 
+            // ms_delete
+            // 
+            this.ms_delete.Name = "ms_delete";
+            this.ms_delete.Size = new System.Drawing.Size(176, 20);
+            this.ms_delete.Text = "Удалить выделенную строку";
+            this.ms_delete.Click += new System.EventHandler(this.ms_delete_Click);
+            // 
             // CurrentOrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(675, 347);
             this.Controls.Add(this.dgv_service);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "CurrentOrdersForm";
             this.Text = "Текущие заказы";
@@ -150,5 +162,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_leadTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_customer;
+        private System.Windows.Forms.ToolStripMenuItem ms_delete;
     }
 }

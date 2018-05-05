@@ -41,6 +41,10 @@ namespace Information_System_For_Car_Service
                 col_leadTime.ReadOnly = false;
                 ms_toOrder.Visible = false;
             }
+            else
+            {
+                ms_delete.Visible = false;
+            }
 
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\Information System For Car Service\\Information System.xls";
 
@@ -126,6 +130,14 @@ namespace Information_System_For_Car_Service
                     excel.WriteServiceList(service);
                     excel.CloseDocument();
                 }
+            }
+        }
+
+        private void ms_delete_Click(object sender, EventArgs e)
+        {
+            if(dgv_service.SelectedRows != null)
+            {
+                dgv_service.Rows.RemoveAt(dgv_service.CurrentCell.RowIndex);
             }
         }
     }
