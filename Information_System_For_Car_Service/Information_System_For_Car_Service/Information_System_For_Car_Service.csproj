@@ -65,6 +65,8 @@
       <DependentUpon>CurrentOrdersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ExcelService.cs" />
+    <Compile Include="IAuthorization.cs" />
+    <Compile Include="IData.cs" />
     <Compile Include="IDocument.cs" />
     <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>

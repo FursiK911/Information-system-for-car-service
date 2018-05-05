@@ -10,7 +10,7 @@ using System.IO;
 
 namespace Information_System_For_Car_Service
 {
-    class ExcelService : IDocument
+    class ExcelService : IDocument, IAuthorization, IData
     {
         // Создаём экземпляр нашего приложения
         private Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
@@ -193,6 +193,7 @@ namespace Information_System_For_Car_Service
                 }
             }
         }
+
         public void WriteDataAllUsers(List<Client> client)
         {
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
@@ -218,6 +219,7 @@ namespace Information_System_For_Car_Service
                 xlWorkSheet.Cells[j++, 8] = client[i].VIP.ToString();
             }
         }
+
         public List<Client> ReadDataUser()
         {
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
